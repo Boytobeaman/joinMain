@@ -2,7 +2,7 @@
 RewriteEngine On
 #Redirect
 Options +FollowSymLinks
-RedirectMatch ^/$ /main/
+RedirectMatch ^/$ https://www.ahotech.xyz/main/
 
 
 </IfModule>
