@@ -4,5 +4,5 @@ RewriteEngine On
 RewriteBase /main
 #RedirectMatch ^/$ https://www.ahotech.xyz/main/
 
-
+Redirect 301 /a /b
 </IfModule>
