@@ -14,14 +14,20 @@
 <body>
     <!-- 挂载点，模板，实例 -->
     <div id="root">
-        <div>
-            <div style="width: 50%;float: left;padding: 0 15px;">
-                <label for="">normal word</label>
-                <textarea style="width: 100%;" rows="10" v-model="normal"></textarea>
-            </div>
-            <div style="width: 50%;float: left;padding: 0 15px;">
-                <label for="">underline_word</label>
-                <textarea style="width: 100%;" rows="10" v-model="normal_"></textarea>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="">normal word</label>
+                    <textarea style="width: 100%;" rows="10" v-model="normal"></textarea>
+                </div>
+                <div class="col-sm-4">
+                    <label for="">underline_word</label>
+                    <textarea style="width: 100%;" rows="10" v-model="normal_"></textarea>
+                </div>
+                <div class="col-sm-4">
+                    <label for="">hyphen-word(for website url)</label>
+                    <textarea style="width: 100%;" rows="10" v-model="normal_hyphen"></textarea>
+                </div>
             </div>
         </div>
         
@@ -32,18 +38,27 @@
             el:"#root",
             data:{
                 normal: '',
-                normal_:''
+                normal_:'',
+                normal_hyphen:''
             },
             watch:{
                 normal: function () {
-                    this.normal = this.normal.replace(/_+/g, " ")
+                    this.normal = this.normal.replace(/[-_]+/g, " ")
                     this.normal = this.normal.replace(/ +/g, " ")
                     this.normal_=this.normal.replace(/ +/g,"_")
+                    this.normal_hyphen=this.normal.replace(/ +/g,"-")
                 },
                 normal_: function () {
-                    this.normal_= this.normal_.replace(/ +/g, "_")
+                    this.normal_= this.normal_.replace(/[ -]+/g, "_")
                     this.normal_= this.normal_.replace(/_+/g, "_")
                     this.normal = this.normal_.replace(/_+/g, " ")
+                    this.normal_hyphen=this.normal.replace(/ +/g,"-")
+                },
+                normal_hyphen: function () {
+                    this.normal_hyphen= this.normal_hyphen.replace(/[-_]+/g, "-")
+                    this.normal_hyphen= this.normal_hyphen.replace(/-+/g, "-")
+                    this.normal = this.normal_hyphen.replace(/-+/g, " ")
+                    this.normal_ = this.normal.replace(/ +/g, "_")
                 }
             }
             
