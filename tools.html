@@ -52,18 +52,21 @@
                     this.normal = this.normal.replace(/ +/g, " ")
                     this.normal_=this.normal.replace(/ +/g,"_")
                     this.normal_hyphen=this.normal.replace(/ +/g,"-")
+                    this.normal_hyphen_lowercase = this.normal_hyphen.toLowerCase()
                 },
                 normal_: function () {
                     this.normal_= this.normal_.replace(/[ -]+/g, "_")
                     this.normal_= this.normal_.replace(/_+/g, "_")
                     this.normal = this.normal_.replace(/_+/g, " ")
                     this.normal_hyphen=this.normal.replace(/ +/g,"-")
+                    this.normal_hyphen_lowercase = this.normal_hyphen.toLowerCase()
                 },
                 normal_hyphen: function () {
                     this.normal_hyphen= this.normal_hyphen.replace(/[-_]+/g, "-")
                     this.normal_hyphen= this.normal_hyphen.replace(/-+/g, "-")
                     this.normal = this.normal_hyphen.replace(/-+/g, " ")
                     this.normal_ = this.normal.replace(/ +/g, "_")
+                    this.normal_hyphen_lowercase = this.normal_hyphen.toLowerCase()
                 },
                 normal_hyphen_lowercase: function () {
                     this.normal_hyphen_lowercase= this.normal_hyphen_lowercase.replace(/[-_]+/g, "-")
