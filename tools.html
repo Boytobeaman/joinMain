@@ -16,17 +16,21 @@
     <div id="root">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <label for="">normal word</label>
                     <textarea style="width: 100%;" rows="10" v-model="normal"></textarea>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <label for="">underline_word</label>
                     <textarea style="width: 100%;" rows="10" v-model="normal_"></textarea>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <label for="">hyphen-word(for website url)</label>
                     <textarea style="width: 100%;" rows="10" v-model="normal_hyphen"></textarea>
+                </div>
+                <div class="col-sm-3">
+                    <label for="">hyphen-word(for website url)</label>
+                    <textarea style="width: 100%;" rows="10" v-model="normal_hyphen_lowercase"></textarea>
                 </div>
             </div>
         </div>
@@ -39,7 +43,8 @@
             data:{
                 normal: '',
                 normal_:'',
-                normal_hyphen:''
+                normal_hyphen:'',
+                normal_hyphen_lowercase:'',
             },
             watch:{
                 normal: function () {
@@ -59,7 +64,15 @@
                     this.normal_hyphen= this.normal_hyphen.replace(/-+/g, "-")
                     this.normal = this.normal_hyphen.replace(/-+/g, " ")
                     this.normal_ = this.normal.replace(/ +/g, "_")
-                }
+                },
+                normal_hyphen_lowercase: function () {
+                    this.normal_hyphen_lowercase= this.normal_hyphen_lowercase.replace(/[-_]+/g, "-")
+                    this.normal_hyphen_lowercase= this.normal_hyphen_lowercase.replace(/-+/g, "-")
+                    this.normal_hyphen= this.normal_hyphen_lowercase
+                    this.normal_hyphen_lowercase= this.normal_hyphen_lowercase.toLowerCase()
+                    this.normal = this.normal_hyphen.replace(/-+/g, " ")
+                    this.normal_ = this.normal.replace(/ +/g, "_")
+                },
             }
             
         })
