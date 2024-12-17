@@ -71,10 +71,7 @@
                 normal_hyphen_lowercase: function () {
                     this.normal_hyphen_lowercase= this.normal_hyphen_lowercase.replace(/[-_]+/g, "-")
                     this.normal_hyphen_lowercase= this.normal_hyphen_lowercase.replace(/-+/g, "-")
-                    this.normal_hyphen= this.normal_hyphen_lowercase
                     this.normal_hyphen_lowercase= this.normal_hyphen_lowercase.toLowerCase()
-                    this.normal = this.normal_hyphen.replace(/-+/g, " ")
-                    this.normal_ = this.normal.replace(/ +/g, "_")
                 },
             }
             
